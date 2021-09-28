@@ -2,6 +2,16 @@ const express = require("express");
 const routes = require('./routes/edenShop'); // import the routes
 require('dotenv').config();
 const mongoose = require('mongoose'); //import mongoose
+const helmet = require('helmet'); // add this line below the other import statements
+
+// add this line below const app = express();
+app.use(helmet());
+
+// add this line below the helmet import statement
+const compression = require('compression');
+
+// add this below app.use(helmet())
+app.use(compression()); //Compress all routes
 
 const app = express();
 
